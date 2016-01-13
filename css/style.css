@@ -1,1 +1,7 @@
-/*my css will be in here*/
+body {
+  background-color: #2A6615;
+}
+
+table {
+  border: 1px solid black;
+}
