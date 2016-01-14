@@ -12,6 +12,52 @@
       <h3><em>From the tent to the fire, it's our coffee you require</em></h3>
   </header>
   <body>
+    <section>
+      <form id="form_location">
+        <fieldset>
+          <table class="table">
+            <tr>
+              <thead>
+                <th>
+                  <label for="kioskName">Location Name</label>
+                </th>
+                <th>
+                  <label for="minCust">Minimum Customers</label>
+                </th>
+                <th>
+                  <label for="maxCust">Maximum Customers</label>
+                </th>
+                <th>
+                  <label for="avgCups">Average Cups / Hour</label>
+                </th>
+                <th>
+                  <label for="avgPounds">Average Pounds / Hour</label>
+                </th>
+              </thead>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="kioskName">
+              </td>
+              <td>
+                <input type="text" name="minCust">
+              </td>
+              <td>
+                <input type="text" name="maxCust">
+              </td>
+              <td>
+                <input type="text" name="avgCups">
+              </td>
+              <td>
+                <input type="text" name="avgPounds">
+              </td>
+            </tr>
+          </table>
+
+          <button id="submit_this" type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </section>
     <section id="table"></section>
     <script type="text/javascript" src="js/app2.js">
 
