@@ -1,7 +1,21 @@
 body {
-  background-color: #2A6615;
+  background-color: #478034;
+}
+hgroup {
+  display: inline;
+}
+h1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  margin-top: -15px;
+  }
+header img{
+  display: inline;
 }
 
-table {
+td {
   border: 1px solid black;
 }
