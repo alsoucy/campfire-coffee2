@@ -68,7 +68,7 @@ var slu = new Kiosk ('South Lake Union', 35, 88, 1.3, 3.7);
 var airport = new Kiosk ('Airport', 68, 124, 1.1, 2.7);
 var web = new Kiosk ('Website', 3, 6, 0, 6.7);
 
-//table - not rendering!
+//table
 var createTable = function() {
   var sectEl = document.getElementById('table');
   var tableEl = document.createElement('table');
