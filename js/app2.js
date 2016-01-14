@@ -1,7 +1,7 @@
 'use strict';
 
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-var allKiosks = [];
+// var allKiosks = [];
 // var locatons = ['Pike Place Market', 'Capital Hill', 'Seattle Public Library', 'South Lake Union', 'Airport', 'Website']
 // var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 // var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -20,7 +20,7 @@ function Kiosk (kioskName, minCust, maxCust, avgCups, avgPounds) {
   this.hourlyCust = [];
   this.cupsHour = [];
   this.poundsHour = [];
-  allKiosks.push(this);
+
 
   this.hourlyCustomers();
   this.cups();
@@ -57,7 +57,7 @@ Kiosk.prototype.pounds = function() {
   this.poundsHour.push(this.hourlyCust[i]*this.avgPounds);
   // console.log(this.poundsHour);
   }
-};
+}
 //calculate total pounds
 
 
@@ -69,23 +69,55 @@ var airport = new Kiosk ('Airport', 68, 124, 1.1, 2.7);
 var web = new Kiosk ('Website', 3, 6, 0, 6.7);
 
 //table - not rendering!
-function render(){
-var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-var sectEl = document.getElementById('kiosk-data');
-var tableEl = document.createElement('table');
-var trEl = document.createElement('tr');
-var thEl = document.createElement('th');
-thEl.textContent = 'Hours';
-trEl.appendChild(thEl);
-for(var i = 0; i < hours.length; i++) {
- var tdEl = document.createElement('td');
- tdEl.textContent = hours[i];
- trEl.appendChild(tdEl);
- tableEl.appendChild(trEl);
- };
-for( var j = 0; j < hours.length; j++) {
+var createTable = function() {
+  var sectEl = document.getElementById('table');
+  var tableEl = document.createElement('table');
+  var storeHours = ['Location','6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
+
+  var row1 = document.createElement('tr');
+  for(var i = 0; i < storeHours.length; i++) {
+    var tableHead = document.createElement('th');
+    tableHead.textContent = storeHours[i];
+    row1.appendChild(tableHead);
+  }
+  tableEl.appendChild(row1);
+  // sectEl.appendChild(tableEl);
+
+  var places = [pikePlace, capHill, library, slu, airport, web];
+  for (var m = 0; m < places.length; m++) {
+    var row2 = document.createElement('tr');
+    var head2 = document.createElement('th');
+    head2.textContent = places[m].kioskName;
+    row2.appendChild(head2);
+    // tableEl.appendChild(row2);
+      for(var n = 0; n < hours.length; n++) {
+        var totalPounds = document.createElement('td');
+        totalPounds.textContent = places[m].poundsHour[n].toFixed(1);
+        row2.appendChild(totalPounds);
+      }
+    tableEl.appendChild(row2);
+  }
+  sectEl.appendChild(tableEl);
 
 }
-}
 
-render();
+
+// var tableEl = document.createElement('table');
+// var trEl = document.createElement('tr');
+// var thEl = document.createElement('th');
+// thEl.textContent = 'Hours';
+// trEl.appendChild(thEl);
+// for(var i = 0; i < hours.length; i++) {
+//  var tdEl = document.createElement('td');
+//  tdEl.textContent = hours[i];
+//  trEl.appendChild(tdEl);
+//  tableEl.appendChild(trEl);
+//  };
+// for( var j = 0; j < allKiosks.length; j++) {
+//   var tr2El = document.createElement('tr');
+//   tr2El.textContent = allKiosks[j];
+
+
+// }
+//
+createTable();
