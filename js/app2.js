@@ -132,3 +132,7 @@ function handlenewLocSubmit(event) {
 };
 
   form_local.addEventListener('submit', handlenewLocSubmit);
+
+for (var i = 0; i < allKiosks.length; i++) {
+
+}
