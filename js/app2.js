@@ -1,7 +1,7 @@
 'use strict';
 
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-// var allKiosks = [];
+var allKiosks = [];
 // var locatons = ['Pike Place Market', 'Capital Hill', 'Seattle Public Library', 'South Lake Union', 'Airport', 'Website']
 // var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 // var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -101,23 +101,38 @@ var createTable = function() {
 
 }
 
-
-// var tableEl = document.createElement('table');
-// var trEl = document.createElement('tr');
-// var thEl = document.createElement('th');
-// thEl.textContent = 'Hours';
-// trEl.appendChild(thEl);
-// for(var i = 0; i < hours.length; i++) {
-//  var tdEl = document.createElement('td');
-//  tdEl.textContent = hours[i];
-//  trEl.appendChild(tdEl);
-//  tableEl.appendChild(trEl);
-//  };
-// for( var j = 0; j < allKiosks.length; j++) {
-//   var tr2El = document.createElement('tr');
-//   tr2El.textContent = allKiosks[j];
-
-
-// }
-//
 createTable();
+
+//thurs js for new location add
+// var newForm = document.getElementById('form-local')
+function handlenewLocSubmit(event) {
+  console.log(event);
+  event.preventDefault();
+
+  if (!event.target.kioskName.value || !event.target.minCust.value ||  !event.target.maxCust.value || !event.target.avgCups.value ||  !event.target.avgPounds.value ) {
+   return alert('Fields cannot be empty!');
+  }
+
+  var new_Loc = event.target.kioskName.value;
+  var min_Cust = event.target.minCust.value;
+  var max_Cust = event.target.maxCust.value;
+  var avg_Cups = event.target.avgCups.value;
+  var avg_Pounds = event.target.avgPounds.value;
+
+  var newLocation  = new Kiosk(new_Loc, min_Cust, max_Cust, avg_Cups, avg_Pounds);
+
+  event.target.kioskName.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCups.value = null;
+  event.target.avgPounds.value = null;
+
+  allKiosks.push(newLocation);
+  console.log(newLocation);
+};
+
+  form_local.addEventListener('submit', handlenewLocSubmit);
+
+for (var i = 0; i < allKiosks.length; i++) {
+
+}
