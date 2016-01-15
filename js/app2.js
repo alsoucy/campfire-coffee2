@@ -1,7 +1,7 @@
 'use strict';
 
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-var allKiosks = [];
+var newKiosks = [];
 // var locatons = ['Pike Place Market', 'Capital Hill', 'Seattle Public Library', 'South Lake Union', 'Airport', 'Website']
 // var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 // var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -20,27 +20,26 @@ function Kiosk (kioskName, minCust, maxCust, avgCups, avgPounds) {
   this.hourlyCust = [];
   this.cupsHour = [];
   this.poundsHour = [];
+  // this.ttlPounds = [];
 
 
   this.hourlyCustomers();
   this.cups();
   this.pounds();
+  // this.totalPounds();
 }
 //location info
 // var locatons = ['Pike Place Market', 'Capital Hill', 'Seattle Public Library', 'South Lake Union', 'Airport', 'Website'];
 
 //generating random number
 Kiosk.prototype.generateRandom = function(minCust , maxCust) {
-  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
-  // console.log(generateRandom);
+  return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
 };
-
 
 //calculate hourly customers
 Kiosk.prototype.hourlyCustomers = function() {
   for (var i = 0; i < hours.length; i++){
    this.hourlyCust.push(this.generateRandom(this.minCust,this.maxCust));
-  //  console.log(this.hourlyCust);
  };
 };
 
@@ -58,8 +57,6 @@ Kiosk.prototype.pounds = function() {
   // console.log(this.poundsHour);
   }
 }
-//calculate total pounds
-
 
 var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -70,7 +67,7 @@ var web = new Kiosk ('Website', 3, 6, 0, 6.7);
 
 //table
 var createTable = function() {
-  var sectEl = document.getElementById('table');
+  var sectEl = document.getElementById('ttlPoundsTable');
   var tableEl = document.createElement('table');
   var storeHours = ['Location','6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm','5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 
@@ -98,13 +95,10 @@ var createTable = function() {
     tableEl.appendChild(row2);
   }
   sectEl.appendChild(tableEl);
-
 }
-
 createTable();
 
 //thurs js for new location add
-// var newForm = document.getElementById('form-local')
 function handlenewLocSubmit(event) {
   console.log(event);
   event.preventDefault();
@@ -127,12 +121,21 @@ function handlenewLocSubmit(event) {
   event.target.avgCups.value = null;
   event.target.avgPounds.value = null;
 
-  allKiosks.push(newLocation);
+  newKiosks.push(newLocation);
   console.log(newLocation);
 };
 
   form_local.addEventListener('submit', handlenewLocSubmit);
-
-for (var i = 0; i < allKiosks.length; i++) {
-
-}
+//add new row with new store
+    var createKioskRow = function() {
+      for (var i = 0; i < hours.length; i++) {
+        var newSect = document.getElementById('ttlPoundsTable');
+        var newRow = document.createElement('tr');
+        var newData = document.createElement('td');
+        newData.textContent = newKiosks;
+        newSect.appendChild(newRow);
+        newRow.appendChild(newData);
+        // tableEl.appendChild(newRow);
+  }
+  };
+  createKioskRow();

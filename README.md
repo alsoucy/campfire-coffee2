@@ -15,3 +15,9 @@ WED
 Add Html to client facing page<br>
 Add CSS to pages<br>
 fixed table<br>
+
+THURS
+Added form via html (partner Ben Garnaat)<br>
+Added event listener and handler<br>
+
+FRI

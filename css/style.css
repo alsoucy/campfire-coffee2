@@ -159,11 +159,11 @@ header img {
   margin: 15px;
 }
 
-#table, .table {
+#ttlPoundsTable, .table {
   border: 1px solid #F3FAE8;
   color: #F3FAE8;
   margin-top: 10px;
 }
-#table td {
+#ttlPoundsTable td {
   border: 1px solid #F3FAE8;
 }
