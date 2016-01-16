@@ -9,7 +9,7 @@
     <img src="images/coffee-beans-banner.jpg" alt="coffeebeans" />
     <hgroup>
       <h1><em>Campfire Coffee</em></h1>
-      <h3><em>From the tent to the fire, it's our coffee you require</em></h3>
+      <h3 class="slogan"><em>From the tent to the fire, it's our coffee you require</em></h3>
   </header>
   <body>
     <section>
@@ -17,30 +17,19 @@
         <fieldset>
           <table class="table">
             <tr>
-              <thead>
-                <th><label for="kioskName">Location Name</label>
-                </th>
-                <th><label for="minCust">Minimum Customers</label>
-                </th>
-                <th><label for="maxCust">Maximum Customers</label>
-                </th>
-                <th><label for="avgCups">Average Cups / Hour</label>
-                </th>
-                <th><label for="avgPounds">Average Pounds / Hour</label>
-                </th>
-              </thead>
+              <thead><h3 class="formhead"><em>Enter a New Location</em></h3></thead>
+                <th><label for="kioskName">Location Name</label></th>
+                <th><label for="minCust">Minimum Customers</label></th>
+                <th><label for="maxCust">Maximum Customers</label></th>
+                <th><label for="avgCups">Average Cups/ Cust</label></th>
+                <th><label for="avgPounds">Average Pounds/ Cust</label></th>
             </tr>
             <tr>
-              <td><input type="text" name="kioskName">
-              </td>
-              <td><input type="text" name="minCust">
-              </td>
-              <td><input type="text" name="maxCust">
-              </td>
-              <td><input type="text" name="avgCups">
-              </td>
-              <td><input type="text" name="avgPounds">
-              </td>
+              <td><input type="text" name="kioskName"></td>
+              <td><input type="text" name="minCust"></td>
+              <td><input type="text" name="maxCust"></td>
+              <td><input type="text" name="avgCups"></td>
+              <td><input type="text" name="avgPounds"></td>
             </tr>
           </table>
 
@@ -48,7 +37,11 @@
         </fieldset>
       </form>
     </section>
-    <section id="table"></section>
+    <h2 class="tableTitle"><em>Coffee lbs needed/Hour</em></h2>
+    <section id="ttlPoundsTable"></section>
+
+    <h2  class="tableTitle"><em>Customers/Hour</em></h2>
+    <section id="avgCustTable"></section>
 
     <script type="text/javascript" src="js/app2.js">
     </script>
