@@ -17,13 +17,12 @@ function Kiosk (kioskName, minCust, maxCust, avgCups, avgPounds) {
   this.hourlyCustomers();
   this.cups();
   this.pounds();
+  //when new kiosks instantiated push to newKiosks array
   newKiosks.push(this);
 }
-//location info
-
 //generating random number
 Kiosk.prototype.generateRandom = function(minCust , maxCust) {
-  return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
 };
 
 //calculate hourly customers
@@ -45,8 +44,9 @@ Kiosk.prototype.pounds = function() {
   for (var i = 0; i < hours.length; i++){
   this.poundsHour.push((this.hourlyCust[i]*this.avgPounds).toFixed(1));
   // console.log(this.poundsHour);
-  }
+  };
 }
+
 
 var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -107,8 +107,7 @@ var createTable2 = function() {
     var head2 = document.createElement('th');
     head2.textContent = newKiosks[m].kioskName;
     row2.appendChild(head2);
-    // tableEl.appendChild(row2);
-      for(var n = 0; n < hours.length; n++) {
+        for(var n = 0; n < hours.length; n++) {
         var totalPounds = document.createElement('td');
         console.log(newKiosks[m]);
         totalPounds.textContent = newKiosks[m].hourlyCust[n];
@@ -121,9 +120,7 @@ var createTable2 = function() {
 createTable2();
 //thurs js for new location add
 function handlenewLocSubmit(event) {
-  //var places = [pikePlace, capHill, library, slu, airport, web];
-  //console.log(event);
-  console.log("places is: " + newKiosks);
+  console.log(event);
   event.preventDefault();
 
   if (!event.target.kioskName.value || !event.target.minCust.value ||  !event.target.maxCust.value || !event.target.avgCups.value ||  !event.target.avgPounds.value ) {
