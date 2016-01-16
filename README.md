@@ -14,10 +14,12 @@ new function to calculate lbs/hr<br>
 WED
 Add Html to client facing page<br>
 Add CSS to pages<br>
-fixed table<br>
+Fixed table<br>
 
 THURS
 Added form via html (partner Ben Garnaat)<br>
 Added event listener and handler<br>
 
 FRI
+Added table for customers/hour for staffing<br>
+Row will generate when new store data entered into form<br>

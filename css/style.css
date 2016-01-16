@@ -14,7 +14,7 @@ h1 {
   margin-top: 0px;
 }
 
-h3 {
+.slogan {
   text-align: center;
   margin-top: -15px;
   margin-bottom: 10px;
@@ -159,11 +159,22 @@ header img {
   margin: 15px;
 }
 
-#ttlPoundsTable, .table {
+#ttlPoundsTable, .table, #avgCustTable {
   border: 1px solid #F3FAE8;
   color: #F3FAE8;
   margin-top: 10px;
 }
-#ttlPoundsTable td {
+#ttlPoundsTable td, #avgCustTable td {
   border: 1px solid #F3FAE8;
+}
+.tableTitle {
+    color: #F3FAE8;
+}
+.formhead {
+    color: #F3FAE8;
+    text-align: left;
+    margin-top: 0px;
+}
+#submit_this {
+  margin-top: 5px;
 }
