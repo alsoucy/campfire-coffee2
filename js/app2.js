@@ -22,7 +22,7 @@ function Kiosk (kioskName, minCust, maxCust, avgCups, avgPounds) {
 }
 //generating random number
 Kiosk.prototype.generateRandom = function(minCust , maxCust) {
-  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+  return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
 };
 
 //calculate hourly customers
