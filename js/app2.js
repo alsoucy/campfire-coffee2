@@ -31,7 +31,6 @@ Kiosk.prototype.hourlyCustomers = function() {
    this.hourlyCust.push(this.generateRandom(this.minCust,this.maxCust));
  };
 };
-
 //calculate cups per hour in coffee lbs
 Kiosk.prototype.cups = function() {
   for (var i = 0; i < hours.length; i++){
@@ -46,7 +45,6 @@ Kiosk.prototype.pounds = function() {
   // console.log(this.poundsHour);
   };
 }
-
 
 var pikePlace = new Kiosk ('Pike Place Market', 14, 55, 1.2, 3.7);
 var capHill = new Kiosk ('Capital Hill', 32, 48, 3.2, 0.4);
@@ -85,6 +83,7 @@ var createTable = function() {
   }
   sectEl.appendChild(tableEl);
 }
+
 createTable();
 //table for customers/hour
 
@@ -128,10 +127,10 @@ function handlenewLocSubmit(event) {
   }
 
   var new_Loc = event.target.kioskName.value;
-  var min_Cust = event.target.minCust.value;
-  var max_Cust = event.target.maxCust.value;
-  var avg_Cups = event.target.avgCups.value;
-  var avg_Pounds = event.target.avgPounds.value;
+  var min_Cust = parseInt(event.target.minCust.value);
+  var max_Cust = parseInt(event.target.maxCust.value);
+  var avg_Cups = parseInt(event.target.avgCups.value);
+  var avg_Pounds = parseInt(event.target.avgPounds.value);
 
   var newLocation  = new Kiosk(new_Loc, min_Cust, max_Cust, avg_Cups, avg_Pounds);
   //clear existing tables
