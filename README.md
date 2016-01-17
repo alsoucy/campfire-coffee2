@@ -22,4 +22,8 @@ Added event listener and handler<br>
 
 FRI
 Added table for customers/hour for staffing<br>
-Row will generate when new store data entered into form<br>
+Row will generate when new store data entered into form and submit button clicked<br>
+
+SAT
+Added logo (created by David Heyduck)<br>
+Design edits<br>
